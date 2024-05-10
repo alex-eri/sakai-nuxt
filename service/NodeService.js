@@ -1,4 +1,4 @@
-export const NodeService = {
+export class NodeService  {
     getTreeNodesData() {
         return [
             {
@@ -66,7 +66,7 @@ export const NodeService = {
                 ]
             }
         ];
-    },
+    }
 
     getTreeTableNodesData() {
         return [
@@ -419,11 +419,11 @@ export const NodeService = {
                 ]
             }
         ];
-    },
+    }
 
     getTreeTableNodes() {
         return Promise.resolve(this.getTreeTableNodesData());
-    },
+    }
 
     getTreeNodes() {
         return Promise.resolve(this.getTreeNodesData());

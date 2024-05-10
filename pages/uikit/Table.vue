@@ -1,8 +1,8 @@
 <script setup>
 import { FilterMatchMode, FilterOperator } from 'primevue/api';
-import CustomerService from '@/service/CustomerService';
-import ProductService from '@/service/ProductService';
-import { ref, onBeforeMount } from 'vue';
+import {CustomerService} from '@/service/CustomerService';
+import {ProductService} from '@/service/ProductService';
+import { ref, onBeforeMount, reactive } from 'vue';
 
 const customer1 = ref(null);
 const customer2 = ref(null);
@@ -13,8 +13,8 @@ const loading2 = ref(null);
 const idFrozen = ref(false);
 const products = ref(null);
 const expandedRows = ref([]);
-const statuses = ref(['unqualified', 'qualified', 'new', 'negotiation', 'renewal', 'proposal']);
-const representatives = ref([
+const statuses = reactive(['unqualified', 'qualified', 'new', 'negotiation', 'renewal', 'proposal']);
+const representatives = reactive([
     { name: 'Amy Elsner', image: 'amyelsner.png' },
     { name: 'Anna Fali', image: 'annafali.png' },
     { name: 'Asiya Javayant', image: 'asiyajavayant.png' },
@@ -146,7 +146,9 @@ const calculateCustomerTotal = (name) => {
                             <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined @click="clearFilter1()" />
                             <IconField iconPosition="left">
                                 <InputIcon class="pi pi-search" />
-                                <InputText v-model="filters1['global'].value" placeholder="Keyword Search" style="width: 100%" />
+                                <ClientOnly>
+                                    <InputText v-model="filters1['global'].value" placeholder="Keyword Search" style="width: 100%" />
+                                </ClientOnly>
                             </IconField>
                         </div>
                     </template>

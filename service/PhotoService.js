@@ -1,4 +1,4 @@
-export const PhotoService = {
+export class PhotoService  {
     getData() {
         return [
             {
@@ -92,7 +92,7 @@ export const PhotoService = {
                 title: 'Title 15'
             }
         ];
-    },
+    }
 
     getImages() {
         return Promise.resolve(this.getData());

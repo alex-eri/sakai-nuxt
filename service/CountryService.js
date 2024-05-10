@@ -1,4 +1,4 @@
-export const CountryService = {
+export class CountryService  {
     getData() {
         return [
             { name: 'Afghanistan', code: 'AF' },
@@ -244,7 +244,7 @@ export const CountryService = {
             { name: 'Zambia', code: 'ZM' },
             { name: 'Zimbabwe', code: 'ZW' }
         ];
-    },
+    }
 
     getCountries() {
         return Promise.resolve(this.getData());
